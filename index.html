@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ethan Wicko · Portfolio</title>
+  <meta name="description" content="Projects, research, and experiments by Ethan Wicko." />
+
+  <!-- Social preview -->
+  <meta property="og:title" content="Ethan Wicko · Portfolio" />
+  <meta property="og:description" content="Projects, research, and experiments by Ethan Wicko." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/images/cover.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon / theme -->
+  <link rel="icon" href="/images/favicon.png" type="image/png">
+  <meta name="theme-color" content="#0b0f17" />
+
+  <style>
+    :root{
+      --bg:#0b0f17;--card:#121826;--surface:#0f1523;--text:#e6edf7;--muted:#9fb0c8;--accent:#71e5ff;--ring:rgba(113,229,255,.45);--shadow:0 10px 30px rgba(0,0,0,.35)
+    }
+    [data-theme="light"]{
+      --bg:#f7f9fc;--card:#fff;--surface:#f1f5fb;--text:#0e1421;--muted:#516079;--accent:#0066ff;--ring:rgba(0,102,255,.25);--shadow:0 8px 24px rgba(0,0,0,.08)
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:radial-gradient(1200px 600px at 70% -10%, #182132 0%, transparent 60%),var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,"Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji";line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1100px,92%);margin:0 auto}
+    header{position:sticky;top:0;z-index:20;backdrop-filter:saturate(140%) blur(8px);background:linear-gradient(180deg,rgba(10,13,20,.7),rgba(10,13,20,.35));border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{font-weight:700;letter-spacing:.2px}
+    .brand b{color:var(--accent)}
+    .navlinks{display:flex;gap:18px;align-items:center}
+    .navlinks a{opacity:.9;padding:8px 10px;border-radius:10px}
+    .navlinks a:hover{background:rgba(255,255,255,.06)}
+    .toggle{border:1px solid rgba(255,255,255,.12);background:var(--surface);color:var(--text);border-radius:999px;padding:6px 10px;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+    .hero{padding:56px 0 24px}
+    .hero h1{font-size:clamp(26px,5vw,40px);line-height:1.2;margin:10px 0}
+    .hero p{color:var(--muted);max-width:70ch}
+    .cta{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));box-shadow:var(--shadow);font-weight:600}
+    .btn:hover{outline:2px solid var(--ring)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;padding:26px 0 60px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:clip;position:relative;transform:translateZ(0);transition:transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease}
+    .card:focus-visible{outline:3px solid var(--ring);outline-offset:3px}
+    .card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:rgba(255,255,255,.16)}
+    .thumb{aspect-ratio:16/9;width:100%;display:block;object-fit:cover;background:#0c111c}
+    .body{padding:14px}
+    .title{font-size:18px;font-weight:700;margin:2px 0 6px;letter-spacing:.2px}
+    .desc{color:var(--muted);font-size:14px;margin:0 0 10px;min-height:2.2em}
+    .tags{display:flex;flex-wrap:wrap;gap:6px}
+    .tag{font-size:12px;padding:4px 8px;border-radius:999px;background:rgba(113,229,255,.12);color:var(--accent);border:1px solid rgba(113,229,255,.35)}
+    footer{border-top:1px solid rgba(255,255,255,.06);padding:28px 0 40px;color:var(--muted)}
+    @media (prefers-reduced-motion: reduce){.card{transition:none}.card:hover{transform:none}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">Ethan <b>Wicko</b></div>
+      <nav class="navlinks" aria-label="Primary">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <button class="toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Toggle theme">🌙 Theme</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="top">
+      <p>👋 Hi, I’m Ethan. I build engineering software — FEA solvers, topology optimization, and agentic design tools.</p>
+      <h1>Clickable project gallery with clean, responsive cards.</h1>
+      <div class="cta">
+        <a class="btn" href="#projects">View Projects →</a>
+        <a class="btn" href="https://github.com/ewicko" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+
+    <section id="projects" aria-label="Projects">
+      <div class="grid" id="projectGrid"></div>
+    </section>
+
+    <section id="about" aria-label="About" style="padding:10px 0 40px;">
+      <h2 style="margin-bottom:8px;">About</h2>
+      <p style="color:var(--muted);max-width:70ch;">
+        I focus on compliant mechanisms, generative design, and high-performance solvers.
+        Currently shipping a lightweight portfolio of research and code.
+      </p>
+    </section>
+
+    <section id="contact" aria-label="Contact" style="padding:0 0 14px;">
+      <h2 style="margin-bottom:8px;">Contact</h2>
+      <p style="color:var(--muted);">Email: <a href="mailto:hello@ethanwicko.com">hello@ethanwicko.com</a> &nbsp;•&nbsp; LinkedIn: <a href="https://www.linkedin.com/in/your-handle/" target="_blank" rel="noopener">your-handle</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Ethan Wicko</div>
+  </footer>
+
+  <script>
+    // Theme toggle with persistence
+    (function(){
+      const root = document.documentElement;
+      const pref = localStorage.getItem('theme');
+      if (pref === 'light') root.setAttribute('data-theme', 'light');
+      document.getElementById('themeToggle').addEventListener('click', () => {
+        const isLight = root.getAttribute('data-theme') === 'light';
+        if (isLight) root.removeAttribute('data-theme'); else root.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', isLight ? 'dark' : 'light');
+      });
+    })();
+
+    // Editable projects list — swap links/images to yours
+    const projects = [
+      {
+        title: 'Nonlinear Flexure Optimizer',
+        href: 'https://github.com/ewicko/DataGen2DFlexureDiff',
+        image: '/images/flexure-optimizer.png',
+        description: 'Topology-optimized compliant mechanisms with force profiles (Python · FEniCSx · MMA).',
+        tags: ['Python','FEM','MMA']
+      },
+      {
+        title: 'Microfluidic Topology Optimization',
+        href: 'https://github.com/ewicko/MicrofluidicTO',
+        image: '/images/microfluidics.png',
+        description: 'phi.flow-based flow path optimization for chips. Animated results & dataset.',
+        tags: ['phi.flow','Optimization']
+      },
+      {
+        title: 'Generative Bracket Design',
+        href: 'https://github.com/ewicko/BracketCAD',
+        image: '/images/bracket.png',
+        description: 'Agentic AI for rigid+compliant assemblies with verification loops.',
+        tags: ['AI','CAD']
+      }
+    ];
+
+    function cardTemplate(p){
+      const tagHtml = (p.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('');
+      return `
+        <a class="card" href="${p.href}" target="_blank" rel="noopener" aria-label="Open ${p.title}">
+          <img class="thumb" src="${p.image}" alt="${p.title} screenshot" loading="lazy" decoding="async" />
+          <div class="body">
+            <div class="title">${p.title}</div>
+            <p class="desc">${p.description||''}</p>
+            <div class="tags">${tagHtml}</div>
+          </div>
+        </a>`;
+    }
+    document.getElementById('projectGrid').innerHTML = projects.map(cardTemplate).join('');
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
