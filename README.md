@@ -1,3 +1,8 @@
+Notes:
+
+Vocabulary: Could say anthology
+
+
 # Ewicko.github.io
 ### Journey to a Nuclear Magnetic Resonance (NMR) Device
 ###### Subject to much change as I keep learning
