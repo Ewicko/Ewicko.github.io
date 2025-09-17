@@ -143,7 +143,7 @@
     function cardTemplate(p){
       const tagHtml = (p.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('');
       return `
-        <a class="card" href="${p.href}" target="_blank" rel="noopener" aria-label="Open ${p.title}">
+        <a class="card" href="${p.href}" aria-label="View ${p.title} details">
           <img class="thumb" src="${p.image}" alt="${p.title} screenshot" loading="lazy" decoding="async" />
           <div class="body">
             <div class="title">${p.title}</div>
