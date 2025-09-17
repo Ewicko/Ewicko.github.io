@@ -132,158 +132,67 @@
     <section class="section">
       <h2>Overview</h2>
       <p>
-        ManuFix is a reinforcement learning agent that automatically converts arbitrary STL geometry into Z-monotone
-        (no undercuts) shapes that can be milled with 2.5-axis CNC toolpaths. The system addresses a critical challenge
-        in manufacturing: transforming complex designs into machinable parts while minimizing geometric deviation.
-      </p>
-      <p>
-        The pipeline voxelizes the input geometry, computes Z-visibility/draft analysis, non-monotonicity masks,
-        and EDT/thickness maps, then runs a PPO-trained 3D-CNN policy to make localized "brush" edits that
-        eliminate undercuts while preserving the original design intent.
+        I built a reinforcement-learning agent that converts arbitrary STL geometry into a Z-monotone (no undercuts)
+        shape that can be milled with 2.5-axis CNC toolpaths. The pipeline voxelizes the input, computes Z-visibility/draft,
+        non-monotonicity masks, EDT/thickness maps, and runs a PPO-trained 3D-CNN policy to make localized add/remove
+        "brush" edits.
       </p>
     </section>
 
     <section class="section" id="implementation">
       <h2>RL Implementation</h2>
+      <p style="color:var(--muted);font-style:italic;margin-bottom:32px">Tech highlights for ME+AI audiences:</p>
 
       <div class="tech-stack">
         <span class="tech-item">PyTorch</span>
         <span class="tech-item">PPO</span>
         <span class="tech-item">3D-CNN</span>
-        <span class="tech-item">NumPy</span>
-        <span class="tech-item">trimesh</span>
         <span class="tech-item">CUDA</span>
+        <span class="tech-item">Grad-CAM</span>
       </div>
 
       <h3 style="margin:32px 0 16px;color:var(--accent)">Formulation</h3>
       <p>
-        Single-agent PPO (policy gradient with clipping) that samples a voxel index (x, y, z) from a categorical
-        distribution over the grid. The environment interprets that index as a localized edit (add/remove/paint)
-        with a small brush. The goal is to eliminate non-monotone Z columns while minimizing geometric deviation
-        and preserving manufacturability proxies.
+        Single-agent PPO (policy gradient with clipping) that samples a voxel index (x,y,z) from a categorical
+        distribution over the grid; the environment interprets that index as a localized edit (add/remove/paint)
+        with a small brush. Goal: eliminate non-monotone Z columns while minimizing geometric deviation and
+        preserving manufacturability proxies.
       </p>
 
-      <h3 style="margin:32px 0 16px;color:var(--accent)">Network Architecture</h3>
-      <div class="code-block">
-        <pre>Policy / Value Networks: Lightweight 3D-CNN stacks
-├─ Conv3d: 1→16→32→64 channels with ReLU activation
-├─ Actor Head: 1×1×1 conv → per-voxel logits [D×H×W]
-│  └─ Flatten + Softmax → categorical over all voxels
-└─ Critic Head: 1×1×1 conv → value map
-   └─ Global spatial mean → scalar state-value</pre>
-      </div>
-
-      <h3 style="margin:32px 0 16px;color:var(--accent)">Training Parameters</h3>
-      <div class="feature-grid">
-        <div class="feature">
-          <h3>GAE Configuration</h3>
-          <p>γ = 0.99, λ = 0.95 for advantage estimation with proper credit assignment across temporal sequences</p>
-        </div>
-        <div class="feature">
-          <h3>PPO Hyperparameters</h3>
-          <p>Clip ε = 0.2, entropy bonus 0.01 to maintain exploration over the 3D action space</p>
-        </div>
-        <div class="feature">
-          <h3>Optimization</h3>
-          <p>Adam optimizer (lr = 3×10⁻³), minibatch updates with shuffled indices, 10 epochs per update</p>
-        </div>
-        <div class="feature">
-          <h3>Loss Functions</h3>
-          <p>Critic MSE loss with 0.5 weight, clipped surrogate objective for policy updates</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Technical Pipeline</h2>
-
-      <div class="feature-grid">
-        <div class="feature">
-          <h3>Voxelization</h3>
-          <p>Converts input STL to high-resolution voxel grid (64³-128³) with signed distance field computation for accurate surface representation</p>
-        </div>
-        <div class="feature">
-          <h3>Manufacturability Analysis</h3>
-          <p>Computes Z-visibility masks, draft angles, and identifies non-monotonic columns that create undercuts</p>
-        </div>
-        <div class="feature">
-          <h3>State Representation</h3>
-          <p>Multi-channel 3D tensor encoding occupancy, EDT/thickness, non-monotonicity masks, and edit history</p>
-        </div>
-        <div class="feature">
-          <h3>Action Space</h3>
-          <p>Discrete voxel selection with localized brush operations (3×3×3 or 5×5×5) for add/remove/smooth edits</p>
-        </div>
-        <div class="feature">
-          <h3>Reward Engineering</h3>
-          <p>Composite reward balancing monotonicity enforcement, minimal deviation, and thickness preservation</p>
-        </div>
-        <div class="feature">
-          <h3>Post-Processing</h3>
-          <p>Mesh extraction via marching cubes, denoising, and export to STL/height-maps for CAM integration</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="results">
-      <h2>Results & Performance</h2>
-
-      <div class="metrics">
-        <div class="metric">
-          <div class="metric-value">94%</div>
-          <div class="metric-label">Undercut Elimination Rate</div>
-        </div>
-        <div class="metric">
-          <div class="metric-value">8.3%</div>
-          <div class="metric-label">Avg. Geometric Deviation</div>
-        </div>
-        <div class="metric">
-          <div class="metric-value">12s</div>
-          <div class="metric-label">Processing Time (64³)</div>
-        </div>
-        <div class="metric">
-          <div class="metric-value">2.1×</div>
-          <div class="metric-label">Faster than Heuristics</div>
-        </div>
-      </div>
-
+      <h3 style="margin:32px 0 16px;color:var(--accent)">Policy / Value Networks</h3>
       <p>
-        The agent successfully learns to remove undercuts and enforce Z-monotonicity with minimal edits.
-        Key achievements include:
+        Lightweight 3D-CNN stacks (Conv3d: 1→16→32→64 with ReLU).
       </p>
       <ul style="color:var(--muted);max-width:70ch;line-height:1.8">
-        <li><strong>Intelligent edit localization</strong> - Agent focuses on problematic regions rather than global modifications</li>
-        <li><strong>Thickness preservation</strong> - Maintains wall thickness constraints for structural integrity</li>
-        <li><strong>Generalization</strong> - Trained on simple geometries but transfers to complex industrial parts</li>
-        <li><strong>CAM compatibility</strong> - Outputs directly usable in standard 2.5-axis toolpath generators</li>
+        <li><strong>Actor:</strong> a 1×1×1 conv head produces per-voxel logits [D×H×W]; logits are flattened and softmaxed to a categorical over all voxels.</li>
+        <li><strong>Critic:</strong> identical trunk with a 1×1×1 value head, followed by global spatial mean to a scalar state-value.</li>
       </ul>
-    </section>
 
-    <section class="section">
-      <h2>Key Innovations</h2>
+      <h3 style="margin:32px 0 16px;color:var(--accent)">On-Policy Training</h3>
       <p>
-        ManuFix demonstrates several advances in applying RL to manufacturing constraints:
+        GAE(λ) with γ=0.99, λ=0.95; PPO clip ε=0.2; entropy bonus 0.01 to keep exploration over the 3D action space;
+        Adam optimizers (lr = 3×10⁻³); minibatch updates with shuffled indices, 10 epochs per update;
+        critic MSE loss with 0.5 weight.
       </p>
-      <ul style="color:var(--muted);max-width:70ch;line-height:1.8">
-        <li><strong>Sparse action space handling</strong> - Efficient exploration in high-dimensional voxel grids</li>
-        <li><strong>Multi-scale features</strong> - Combines local geometry with global manufacturability metrics</li>
-        <li><strong>Curriculum learning</strong> - Progressive difficulty from simple blocks to complex organic shapes</li>
-        <li><strong>Differentiable manufacturability</strong> - Smooth reward signals for gradient-based optimization</li>
-        <li><strong>Real-time inference</strong> - Deployed model runs at interactive speeds on consumer GPUs</li>
-      </ul>
-    </section>
 
-    <section class="section">
-      <h2>Applications & Impact</h2>
+      <h3 style="margin:32px 0 16px;color:var(--accent)">State & Device</h3>
       <p>
-        This RL approach to manufacturability repair eliminates the need for hand-tuned heuristics and enables:
+        POC uses a single-channel occupancy tensor (ready to extend to multi-channel features like masks/EDT);
+        automatic CUDA usage when available; model checkpointing included.
       </p>
-      <ul style="color:var(--muted);max-width:70ch;line-height:1.8">
-        <li><strong>Rapid prototyping</strong> - Convert concept models to machinable parts in seconds</li>
-        <li><strong>Design automation</strong> - Integrate into CAD workflows for automatic manufacturability checking</li>
-        <li><strong>Cost reduction</strong> - Minimize material removal and machining time through optimal modifications</li>
-        <li><strong>Educational tools</strong> - Teach manufacturing constraints through interactive visualization</li>
-      </ul>
+
+      <h3 style="margin:32px 0 16px;color:var(--accent)">Diagnostics & Interpretability</h3>
+      <p>
+        Integrated Grad-CAM for 3D to visualize policy saliency inside the voxel volume (helps explain edits
+        around undercuts/thin-wall regions).
+      </p>
+
+      <h3 style="margin:32px 0 16px;color:var(--accent)">Outcome</h3>
+      <p>
+        The agent learns to remove undercuts and enforce Z-monotonicity with minimal edits, exporting denoised
+        STL/height-maps suitable for CAM—demonstrating a practical RL route to manufacturability repair without
+        hand-tuned heuristics.
+      </p>
     </section>
 
     <section class="section">
