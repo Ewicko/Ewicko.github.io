@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Force Profile Flexures Generative Design · Ethan Wicko</title>
-  <meta name="description" content="Generative design system that creates flexure geometries with custom force-displacement profiles." />
+  <title>FlexureDiff · Ethan Wicko</title>
+  <meta name="description" content="Diffusion model for flexure generation based on MIT DeCoDe Lab's TopoDiff architecture." />
 
   <!-- Social preview -->
-  <meta property="og:title" content="Force Profile Flexures Generative Design · Ethan Wicko" />
-  <meta property="og:description" content="Generative design system that creates flexure geometries with custom force-displacement profiles." />
+  <meta property="og:title" content="FlexureDiff · Ethan Wicko" />
+  <meta property="og:description" content="Diffusion model for flexure generation based on MIT DeCoDe Lab's TopoDiff architecture." />
   <meta property="og:type" content="article" />
-  <meta property="og:image" content="/images/force-profile-flexures-generative-design/exponential-force-flexure.png" />
+  <meta property="og:image" content="/images/FlexureDiff/3D-thingie10k-dataset.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Favicon / theme -->
@@ -87,19 +87,19 @@
   <main class="container">
     <section class="project-hero">
       <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="/">Home</a> / <a href="/#projects">Projects</a> / Force Profile Flexures
+        <a href="/">Home</a> / <a href="/#projects">Projects</a> / FlexureDiff
       </nav>
 
-      <h1>Force Profile Flexures Generative Design</h1>
+      <h1>FlexureDiff</h1>
 
       <div class="project-meta">
         <div class="meta-item">
           <span class="meta-label">Type</span>
-          <span class="meta-value">Generative Design</span>
+          <span class="meta-value">AI Research</span>
         </div>
         <div class="meta-item">
           <span class="meta-label">Role</span>
-          <span class="meta-value">Lead Developer</span>
+          <span class="meta-value">Lead Researcher</span>
         </div>
         <div class="meta-item">
           <span class="meta-label">Duration</span>
@@ -107,7 +107,7 @@
         </div>
         <div class="meta-item">
           <span class="meta-label">Status</span>
-          <span class="meta-value">In Progress</span>
+          <span class="meta-value">In Development</span>
         </div>
       </div>
 
@@ -121,68 +121,65 @@
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;">
         <div>
           <p>
-            A cutting-edge generative design system that creates flexure geometries optimized to match specific force-displacement profiles.
-            By inputting a target force profile, the system generates compliant mechanism geometries such that the reaction force at any
-            displacement closely matches the desired response curve.
+            FlexureDiff is a specialized diffusion model for generating compliant mechanism designs, adapted from MIT DeCoDe Lab's
+            groundbreaking TopoDiff architecture. This model learns the distribution of successful flexure designs and can generate
+            novel, manufacturable mechanisms from high-level specifications.
           </p>
           <p>
-            This enables the creation of mechanisms with precisely tailored mechanical behaviors - from linear springs to exponential
-            stiffening, softening responses, or complex multi-phase force profiles for specialized applications in robotics,
-            precision instruments, and energy absorption systems.
+            By training on thousands of topology-optimized flexure designs, FlexureDiff captures the implicit design rules and
+            patterns that lead to functional compliant mechanisms, enabling rapid exploration of the design space without
+            traditional iterative optimization.
           </p>
         </div>
         <div class="hero-image">
-          <img src="/images/force-profile-flexures-generative-design/exponential-force-graph.png" alt="Force-displacement profile visualization showing exponential response" loading="eager" />
+          <img src="/images/FlexureDiff/3D-thingie10k-dataset.png" alt="FlexureDiff training dataset visualization" loading="eager" />
         </div>
       </div>
     </section>
 
     <section class="section" id="technical">
-      <h2>Technical Approach</h2>
+      <h2>Technical Implementation</h2>
 
       <div class="tech-stack">
-        <span class="tech-item">Python</span>
-        <span class="tech-item">FEniCSx</span>
+        <span class="tech-item">PyTorch</span>
+        <span class="tech-item">Diffusion Models</span>
+        <span class="tech-item">TopoDiff</span>
         <span class="tech-item">Topology Optimization</span>
-        <span class="tech-item">Inverse Design</span>
-        <span class="tech-item">Nonlinear FEA</span>
+        <span class="tech-item">3D CNNs</span>
       </div>
 
       <div class="feature-grid">
         <div class="feature">
-          <h3>Profile Matching</h3>
-          <p>Advanced optimization algorithms minimize the difference between target and achieved force-displacement curves across the entire actuation range.</p>
+          <h3>Conditional Generation</h3>
+          <p>Generate flexures based on specific boundary conditions, load cases, and performance requirements through conditional diffusion.</p>
         </div>
         <div class="feature">
-          <h3>Generative Algorithm</h3>
-          <p>Combines topology optimization with machine learning to explore vast design spaces and generate novel flexure geometries automatically.</p>
+          <h3>Voxel Representation</h3>
+          <p>Leverages 3D voxel grids to represent material distribution, enabling direct generation of manufacturable geometries.</p>
         </div>
         <div class="feature">
-          <h3>Multi-Objective</h3>
-          <p>Simultaneously optimizes for profile matching, manufacturability, stress distribution, and material efficiency.</p>
+          <h3>Physics-Informed</h3>
+          <p>Incorporates mechanical constraints and physics principles into the generation process for functional designs.</p>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <h2>Example Applications</h2>
-      <div class="hero-image" style="margin-top: 24px;">
-        <img src="/images/force-profile-flexures-generative-design/exponential-force-flexure.png" alt="Exponential stiffening flexure" />
-      </div>
-      <p style="color:var(--muted);margin-top:12px;margin-bottom:32px;">
-        <strong>Exponential stiffening flexure:</strong> Force increases exponentially with displacement, ideal for impact protection systems and progressive-rate suspensions.
+      <h2>Dataset & Training</h2>
+      <p>
+        The model is trained on a curated dataset of over 10,000 topology-optimized flexure designs, each validated through
+        finite element analysis. The dataset spans various loading conditions, boundary constraints, and mechanical objectives,
+        providing comprehensive coverage of the flexure design space.
       </p>
-      <div class="hero-image" style="margin-top: 24px;">
-        <img src="/images/force-profile-flexures-generative-design/softening-flexure.png" alt="Softening response flexure" />
-      </div>
-      <p style="color:var(--muted);margin-top:12px;">
-        <strong>Softening response flexure:</strong> Force plateaus with increasing displacement, perfect for constant-force mechanisms and precision assembly tools.
+      <p>
+        Training leverages the denoising diffusion probabilistic model (DDPM) framework, adapted for 3D voxel data with
+        custom architectural modifications to handle the unique characteristics of topology optimization outputs.
       </p>
     </section>
 
     <nav class="project-nav" aria-label="Project navigation">
       <a href="/" class="nav-link prev">← Back to Portfolio</a>
-      <a href="/bracket-design.html" class="nav-link">Next: Bracket Design →</a>
+      <a href="/force-profile-flexures.html" class="nav-link">Next: Force Profile Flexures →</a>
     </nav>
   </main>
 
