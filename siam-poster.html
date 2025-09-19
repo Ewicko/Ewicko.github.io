@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SIAM Conference Poster · Ethan Wicko</title>
+  <meta name="description" content="Generative Design for Compliant Mechanisms Using Agentic AI, presented at SIAM International Conference." />
+
+  <!-- Social preview -->
+  <meta property="og:title" content="SIAM Conference Poster · Ethan Wicko" />
+  <meta property="og:description" content="Generative Design for Compliant Mechanisms Using Agentic AI, presented at SIAM International Conference." />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="/images/compliant-generative-with-RL/SIAM-poster.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon / theme -->
+  <link rel="icon" href="/images/favicon.png" type="image/png">
+  <meta name="theme-color" content="#0b0f17" />
+
+  <style>
+    :root{
+      --bg:#0b0f17;--card:#121826;--surface:#0f1523;--text:#e6edf7;--muted:#9fb0c8;--accent:#71e5ff;--ring:rgba(113,229,255,.45);--shadow:0 10px 30px rgba(0,0,0,.35)
+    }
+    [data-theme="light"]{
+      --bg:#f7f9fc;--card:#fff;--surface:#f1f5fb;--text:#0e1421;--muted:#516079;--accent:#0066ff;--ring:rgba(0,102,255,.25);--shadow:0 8px 24px rgba(0,0,0,.08)
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,"Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji";line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1400px,95%);margin:0 auto}
+    header{position:sticky;top:0;z-index:20;backdrop-filter:saturate(140%) blur(8px);background:linear-gradient(180deg,rgba(10,13,20,.7),rgba(10,13,20,.35));border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{font-weight:700;letter-spacing:.2px}
+    .brand b{color:var(--accent)}
+    .navlinks{display:flex;gap:18px;align-items:center}
+    .navlinks a{opacity:.9;padding:8px 10px;border-radius:10px}
+    .navlinks a:hover{background:rgba(255,255,255,.06)}
+    .toggle{border:1px solid rgba(255,255,255,.12);background:var(--surface);color:var(--text);border-radius:999px;padding:6px 10px;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+    .project-hero{padding:40px 0}
+    .breadcrumb{color:var(--muted);margin-bottom:16px;font-size:14px}
+    .breadcrumb a{color:var(--accent);opacity:.9}
+    .breadcrumb a:hover{opacity:1;text-decoration:underline}
+    .project-hero h1{font-size:clamp(28px,4vw,42px);line-height:1.1;margin:12px 0 24px}
+    .hero-image{width:100%;margin:32px 0;text-align:center}
+    .hero-image img{width:100%;height:auto;display:block;border-radius:12px;box-shadow:var(--shadow)}
+    .project-nav{padding:48px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+    .nav-link{display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:12px;transition:all 200ms}
+    .nav-link:hover{border-color:var(--accent);transform:translateX(4px)}
+    .nav-link.prev:hover{transform:translateX(-4px)}
+    footer{border-top:1px solid rgba(255,255,255,.06);padding:28px 0 40px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">Ethan <b>Wicko</b></div>
+      <nav class="navlinks" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/#projects">Projects</a>
+        <a href="/#about">About</a>
+        <a href="/#contact">Contact</a>
+        <button class="toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Toggle theme">🌙 Theme</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="project-hero">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <a href="/#projects">Projects</a> / SIAM Conference Poster
+      </nav>
+
+      <h1>SIAM Conference Poster</h1>
+
+      <p style="color:var(--muted);max-width:70ch;line-height:1.7;margin-bottom:32px;">
+        Presented "Generative Design for Compliant Mechanisms Using Agentic AI" at the SIAM International Conference.
+        This work explores the integration of reinforcement learning with topology optimization to accelerate the design
+        of compliant mechanisms, achieving significant computational speedups while maintaining design quality.
+      </p>
+
+      <div class="hero-image">
+        <img src="/images/compliant-generative-with-RL/SIAM-poster.png" alt="SIAM Conference Poster on Generative Design for Compliant Mechanisms" loading="eager" />
+      </div>
+
+      <div class="hero-image">
+        <img src="/images/compliant-generative-with-RL/SIAM-conference.png" alt="Presenting at SIAM Conference" loading="eager" />
+        <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">Presenting at the SIAM International Conference</p>
+      </div>
+    </section>
+
+    <nav class="project-nav" aria-label="Project navigation">
+      <a href="/manufix.html" class="nav-link prev">← Previous: ManuFix</a>
+      <a href="/spacex.html" class="nav-link">Next: SpaceX →</a>
+    </nav>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Ethan Wicko · <a href="/#contact" style="color:var(--accent)">Contact</a></div>
+  </footer>
+
+  <script>
+    // Theme toggle with persistence
+    (function(){
+      const root = document.documentElement;
+      const pref = localStorage.getItem('theme');
+      if (pref === 'light') root.setAttribute('data-theme', 'light');
+      document.getElementById('themeToggle').addEventListener('click', () => {
+        const isLight = root.getAttribute('data-theme') === 'light';
+        if (isLight) root.removeAttribute('data-theme'); else root.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', isLight ? 'dark' : 'light');
+      });
+    })();
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
