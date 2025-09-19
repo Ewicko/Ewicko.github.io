@@ -177,6 +177,49 @@
       </p>
     </section>
 
+    <section class="section">
+      <h2>Spatial Encoding Innovation</h2>
+      <p>
+        A critical innovation in FlexureDiff compared to TopoDiff is the use of spatial encoding to vastly improve data efficiency.
+        Unlike TopoDiff where loads and boundary conditions are applied at different locations, in FlexureDiff the loads are
+        applied at the same location for every flexure—only varying in magnitude and basis directions.
+      </p>
+      <p>
+        This presented a unique challenge: when using the same location for all prescribed displacement values and simply
+        indicating the direction, the data efficiency was poor. To solve this, I developed a spatial encoding approach using
+        arbitrary patterns to encode the load direction. Each direction receives its own distinct arbitrary pattern, which is
+        then multiplied by the load magnitude. Interestingly, the specific patterns chosen don't matter—what matters is that
+        they provide unique spatial signatures for each loading direction.
+      </p>
+
+      <div style="margin: 32px 0;">
+        <h3 style="font-size: 20px; margin-bottom: 20px; color: var(--accent);">Without Spatial Encoding</h3>
+        <div class="hero-image">
+          <img src="/images/FlexureDiff/without_spatial_encoding.png" alt="Results without spatial encoding" />
+          <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">
+            Without spatial encoding: Only 3/8 feasible topologies generated after 22,000+ training steps
+          </p>
+        </div>
+      </div>
+
+      <div style="margin: 32px 0;">
+        <h3 style="font-size: 20px; margin-bottom: 20px; color: var(--accent);">With Spatial Encoding</h3>
+        <div class="hero-image">
+          <img src="/images/FlexureDiff/with_spatial_encoding.png" alt="Results with spatial encoding" />
+          <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">
+            With spatial encoding: 8/8 feasible topologies in only 6,000 steps. Samples 4 and 7 are more feasible/flexible than ground truth and outperform it
+          </p>
+        </div>
+      </div>
+
+      <p>
+        The results demonstrate a dramatic improvement: data efficiency increased by more than 3.6× relative to the baseline
+        FlexureDiff model. Using the exact same 400-sample dataset and identical hyperparameters on the same model architecture,
+        the spatially-encoded version achieved 100% feasible topology generation (8/8) in just 6,000 training steps, compared
+        to only 37.5% (3/8) feasible topologies after 22,000+ steps without spatial encoding.
+      </p>
+    </section>
+
     <nav class="project-nav" aria-label="Project navigation">
       <a href="/" class="nav-link prev">← Back to Portfolio</a>
       <a href="/force-profile-flexures.html" class="nav-link">Next: Force Profile Flexures →</a>
