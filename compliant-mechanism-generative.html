@@ -26,7 +26,7 @@
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0;background:radial-gradient(1200px 600px at 70% -10%, #182132 0%, transparent 60%),var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,"Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji";line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,"Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji";line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
     a{color:inherit;text-decoration:none}
     .container{width:min(1100px,92%);margin:0 auto}
     header{position:sticky;top:0;z-index:20;backdrop-filter:saturate(140%) blur(8px);background:linear-gradient(180deg,rgba(10,13,20,.7),rgba(10,13,20,.35));border-bottom:1px solid rgba(255,255,255,.06)}
@@ -193,19 +193,19 @@
           <div class="hero-image">
             <img src="/images/compliant-mechanism-topop/obstacle_start.png" alt="Initial design with obstacle zone" />
           </div>
-          <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">Initial state</p>
+          <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">White region is obstacle "keep out" region</p>
         </div>
         <div>
           <div class="hero-image">
             <img src="/images/compliant-mechanism-topop/obstacle_finish.png" alt="Optimized design avoiding obstacle" />
           </div>
-          <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">Final design</p>
+          <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">White region respected in generated design</p>
         </div>
         <div>
           <div class="hero-image">
             <img src="/images/compliant-mechanism-topop/without_obstacle.png" alt="Design without obstacle constraint" />
           </div>
-          <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">Without obstacle</p>
+          <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">Has comparable performance to non-obstacle design shown</p>
         </div>
       </div>
     </section>
