@@ -113,7 +113,7 @@
 
       <div class="cta-group">
         <a href="https://transcendmechanics.com/what-we-see-in-compliant-mechanisms/" target="_blank" rel="noopener" class="btn btn-primary">
-          Read Our Vision →
+          Read Transcend Mechanics' Vision →
         </a>
         <a href="#technical" class="btn">Technical Details ↓</a>
       </div>
@@ -175,15 +175,50 @@
     </section>
 
     <section class="section">
-      <h2>Key Features</h2>
-      <ul style="color:var(--muted);max-width:70ch;line-height:1.8">
-        <li><strong>Automated mesh generation</strong> with adaptive refinement for critical regions</li>
-        <li><strong>Sensitivity filtering</strong> to ensure mesh-independent and manufacturable designs</li>
-        <li><strong>Volume fraction constraints</strong> for material-efficient solutions</li>
-        <li><strong>Stress constraints</strong> to prevent failure under operational loads</li>
-        <li><strong>Export to CAD formats</strong> for direct manufacturing integration</li>
-        <li><strong>Real-time visualization</strong> of optimization progress and convergence metrics</li>
-      </ul>
+      <h2>Solver Inputs & Outputs</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 24px;">
+        <div>
+          <h3 style="color: var(--accent); margin-bottom: 16px;">Flexures</h3>
+          <div style="background: var(--card); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 20px;">
+            <h4 style="margin-top: 0; margin-bottom: 12px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted);">Inputs</h4>
+            <ul style="color: var(--muted); line-height: 1.8; margin-bottom: 20px;">
+              <li>Target stiffness in free direction(s)</li>
+              <li>Material stress limits</li>
+              <li>Design domain dimensions</li>
+              <li>Required displacement range</li>
+              <li>Obstacle locations (optional)</li>
+            </ul>
+            <h4 style="margin-bottom: 12px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted);">Outputs</h4>
+            <ul style="color: var(--muted); line-height: 1.8; margin: 0;">
+              <li>Optimized topology (STL/STEP)</li>
+              <li>Force-displacement curves</li>
+              <li>Stress distribution maps</li>
+              <li>Performance metrics</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <h3 style="color: var(--accent); margin-bottom: 16px;">Compliant Mechanisms</h3>
+          <div style="background: var(--card); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 20px;">
+            <h4 style="margin-top: 0; margin-bottom: 12px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted);">Inputs</h4>
+            <ul style="color: var(--muted); line-height: 1.8; margin-bottom: 20px;">
+              <li>Design domain dimensions</li>
+              <li>Input port location</li>
+              <li>Output port location</li>
+              <li>Obstacle locations (optional)</li>
+              <li>Fixed/preserved regions</li>
+              <li>Target mechanical advantage</li>
+            </ul>
+            <h4 style="margin-bottom: 12px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted);">Outputs</h4>
+            <ul style="color: var(--muted); line-height: 1.8; margin: 0;">
+              <li>Optimized mechanism topology</li>
+              <li>Actual mechanical advantage</li>
+              <li>Input/output relationships</li>
+              <li>Manufacturing-ready geometry</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="section">
