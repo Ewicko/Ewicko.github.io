@@ -148,20 +148,13 @@
         <span class="tech-item">Nonlinear FEA</span>
       </div>
 
-      <div class="feature-grid">
-        <div class="feature">
-          <h3>Profile Matching</h3>
-          <p>Advanced optimization algorithms minimize the difference between target and achieved force-displacement curves across the entire actuation range.</p>
-        </div>
-        <div class="feature">
-          <h3>Generative Algorithm</h3>
-          <p>Combines topology optimization with machine learning to explore vast design spaces and generate novel flexure geometries automatically.</p>
-        </div>
-        <div class="feature">
-          <h3>Multi-Objective</h3>
-          <p>Simultaneously optimizes for profile matching, manufacturability, stress distribution, and material efficiency.</p>
-        </div>
-      </div>
+      <ul style="color: var(--muted); max-width: 120ch; line-height: 1.8; margin-top: 24px;">
+        <li><strong>Profile Matching:</strong> Advanced optimization algorithms minimize the difference between target and achieved force-displacement curves across the entire actuation range.</li>
+        <li><strong>Generative Algorithm:</strong> Combines topology optimization with inverse design methods to explore vast design spaces and generate novel flexure geometries automatically.</li>
+        <li><strong>Multi-Objective Optimization:</strong> Simultaneously optimizes for profile matching, manufacturability, stress distribution, and material efficiency.</li>
+        <li><strong>Nonlinear Analysis:</strong> Custom arc-length solver handles snap-through, snap-back, and negative stiffness behaviors critical for complex force profiles.</li>
+        <li><strong>Density-Based TO:</strong> SIMP method with custom sensitivities for gradient-based optimization of the material distribution.</li>
+      </ul>
     </section>
 
     <section class="section">
@@ -195,7 +188,7 @@
     </section>
 
     <section class="section">
-      <h2>Example Applications</h2>
+      <h2>Example Early Resutls With My Formulation</h2>
       <div class="hero-image" style="margin-top: 24px;">
         <img src="/images/force-profile-flexures-generative-design/exponential-force-flexure.png" alt="Exponential stiffening flexure" />
       </div>
