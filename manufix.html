@@ -185,9 +185,8 @@
 
       <h3 style="margin:32px 0 16px;color:var(--accent)">Outcome</h3>
       <p>
-        The agent learns to remove undercuts and enforce Z-monotonicity with minimal edits, exporting denoised
-        STL/height-maps suitable for CAM—demonstrating a practical RL route to manufacturability repair without
-        hand-tuned heuristics.
+        The agent learns to remove undercuts and enforce Z-monotonicity with minimal edits. Shown to be resolution agnostic. Showcases effective approach to learning
+        geomerty manipulation and can be explaned upon for other use cases in the future.
       </p>
     </section>
 
@@ -214,14 +213,18 @@
         The video on the right shows the trained agent systematically removing non-monotonic regions to ensure the part
         can be manufactured from the side. The rotation back and forth provides depth perception to better visualize the 3D voxel edits.
       </p>
+      <div style="margin-top: 32px; text-align: center;">
+        <img src="/images/grooved_pulley.png" alt="Grooved pulley wheel" style="max-width: 400px; width: 100%; border-radius: 12px; box-shadow: var(--shadow);">
+        <p style="margin-top: 12px; font-size: 14px; color: var(--muted);">Grooved pulley wheel used as toy problem for side machining</p>
+      </div>
     </section>
 
     <section class="section">
       <h2>Future Work</h2>
       <p>
-        Current development focuses on extending the approach to handle 3-axis and 5-axis machining constraints,
-        multi-material parts, and assembly-level manufacturability. We're also exploring transformer-based architectures
-        for better long-range spatial reasoning and investigating sim-to-real transfer for direct CNC machine control.
+        Current development focuses on extending the approach to handle 3-axis and 5-axis machining constraints as well as other 
+        geometric manipulation, multi-material parts, and assembly-level manufacturability. I'm also exploring transformer-based
+        architectures for better long-range spatial reasoning.
       </p>
     </section>
 
