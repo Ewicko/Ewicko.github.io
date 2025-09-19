@@ -121,13 +121,13 @@
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start;">
         <div>
           <p style="margin-top: 0;">
-            A cutting-edge generative design system that creates flexure geometries optimized to match specific force-displacement profiles.
+            A novel generative design system I'm developing that creates flexure geometries optimized to match specific and arbitrary force-displacement profiles.
             By inputting a target force profile, the system generates compliant mechanism geometries such that the reaction force at any
             displacement closely matches the desired response curve.
           </p>
           <p>
-            This enables the creation of mechanisms with precisely tailored mechanical behaviors - from linear springs to exponential
-            stiffening, softening responses, or complex multi-phase force profiles for specialized applications in robotics,
+            This enables the creation of mechanisms with precisely tailored mechanical behaviors such as exponential stiffnening,
+            softening responses, bi-stable regions with negative reaction force, or complex multi-phase force profiles for specialized applications in robotics,
             precision instruments, and energy absorption systems.
           </p>
         </div>
@@ -186,6 +186,17 @@
       <p style="color:var(--muted);margin-top:12px;">
         This animation was created with my custom arc-length solver that is able to simulate snap-through/snap-back behavior
         and integrates with MMA optimization through custom adjoint-derived sensitivities that I developed.
+      </p>
+      <p style="color:var(--muted);margin-top:16px;">
+        To accurately design these force profiles, I need to model the most nonlinear behaviors including elemental negative stiffness,
+        near-singular stiffness matrices, and buckling phenomena. This requires a highly specialized solver capable of handling
+        extreme geometric nonlinearity and material instabilities that occur in compliant mechanisms.
+      </p>
+      <p style="color:var(--muted);margin-top:16px;">
+        While open-source nonlinear FEA solvers exist, they cannot be used for this application as I need direct control of the
+        elemental values for SIMP (Solid Isotropic Material with Penalization) density-based topology optimization, as well as
+        the ability to create custom adjoint sensitivities and gradients required by the MMA optimizer. This necessitated developing
+        a fully custom arc-length solver from scratch.
       </p>
     </section>
 
