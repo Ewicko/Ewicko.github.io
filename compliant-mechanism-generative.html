@@ -207,7 +207,7 @@
         The optimizer uses a custom implementation of the Method of Moving Asymptotes (MMA) algorithm combined with FEniCSx based FEA solvers.
       </p>
 
-      <ul style="color: var(--muted); max-width: 70ch; line-height: 1.8;">
+      <ul style="color: var(--muted); max-width: 120ch; line-height: 1.8;">
         <li><strong>FEA:</strong> Modified FEniCSx based FEA solvers made to work with MMA sensitivites/gradients.</li>
         <li><strong>Optimizer:</strong> Custom implementation of the Method of Moving Asymptotes (MMA), adapted from Svanberg (1987).</li>
         <li><strong>Formulations:</strong>  Custom strain energy and virtual work formulations inspired by Koppen (2022).</li>
@@ -218,7 +218,7 @@
     <section class="section">
       <h2>Obstacle Avoidance</h2>
       <p>
-        I also developed obstacle functionality, enabling definition of keep-out zones within the design domain. This allows optimization around existing components or mechanical constraints.
+        I also developed novel obstacle functionality, enabling definition of keep-out zones within the design domain. This allows optimization around existing components or mechanical constraints.
       </p>
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 32px 0;">
         <div>
@@ -231,13 +231,13 @@
           <div class="hero-image">
             <img src="/images/compliant-mechanism-topop/obstacle_finish.png" alt="Optimized design avoiding obstacle" />
           </div>
-          <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">Obstacle region respected in generated design (stiff in tx, compliant in ty)</p>
+          <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">Obstacle region respected in generated design (stiff in tx on top edge, compliant in ty)</p>
         </div>
         <div>
           <div class="hero-image">
             <img src="/images/compliant-mechanism-topop/without_obstacle.png" alt="Design without obstacle constraint" />
           </div>
-          <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">Has comparable performance to non-obstacle design shown (stiff in tx, compliant in ty)</p>
+          <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">Has comparable performance to non-obstacle design shown (stiff in tx on top edge, compliant in ty)</p>
         </div>
       </div>
     </section>
