@@ -142,6 +142,35 @@
       </div>
     </section>
 
+    <section class="section">
+      <h2>Learning Progress Visualization</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 32px 0;">
+        <div>
+          <video width="100%" height="auto" autoplay loop muted playsinline style="border-radius: 12px; box-shadow: var(--shadow);">
+            <source src="/images/Manufix/episode_animation_start.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">Early training: agent learning material removal</p>
+        </div>
+        <div>
+          <video width="100%" height="auto" autoplay loop muted playsinline style="border-radius: 12px; box-shadow: var(--shadow);">
+            <source src="/images/Manufix/episode_animation_end.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">Trained agent: systematic non-monotonic removal</p>
+        </div>
+      </div>
+      <p style="color: var(--muted); max-width: 70ch;">
+        The video on the left shows the agent during early training, learning how to identify and remove material.
+        The video on the right shows the trained agent systematically removing non-monotonic regions to ensure the part
+        can be manufactured from the side. The rotation back and forth provides depth perception to better visualize the 3D voxel edits.
+      </p>
+      <div style="margin-top: 32px; text-align: center;">
+        <img src="/images/grooved_pulley.png" alt="Grooved pulley wheel" style="max-width: 400px; width: 100%; border-radius: 12px; box-shadow: var(--shadow);">
+        <p style="margin-top: 12px; font-size: 14px; color: var(--muted);">Grooved pulley wheel used as toy problem for side machining</p>
+      </div>
+    </section>
+
     <section class="section" id="implementation">
       <h2>RL Implementation</h2>
       <p style="color:var(--muted);font-style:italic;margin-bottom:32px">Tech highlights for ME+AI audiences:</p>
@@ -188,35 +217,6 @@
         The agent learns to remove undercuts and enforce Z-monotonicity with minimal edits. Shown to be resolution agnostic. Showcases effective approach to learning
         geomerty manipulation and can be explaned upon for other use cases in the future.
       </p>
-    </section>
-
-    <section class="section">
-      <h2>Learning Progress Visualization</h2>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 32px 0;">
-        <div>
-          <video width="100%" height="auto" autoplay loop muted playsinline style="border-radius: 12px; box-shadow: var(--shadow);">
-            <source src="/images/Manufix/episode_animation_start.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">Early training: agent learning material removal</p>
-        </div>
-        <div>
-          <video width="100%" height="auto" autoplay loop muted playsinline style="border-radius: 12px; box-shadow: var(--shadow);">
-            <source src="/images/Manufix/episode_animation_end.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">Trained agent: systematic non-monotonic removal</p>
-        </div>
-      </div>
-      <p style="color: var(--muted); max-width: 70ch;">
-        The video on the left shows the agent during early training, learning how to identify and remove material.
-        The video on the right shows the trained agent systematically removing non-monotonic regions to ensure the part
-        can be manufactured from the side. The rotation back and forth provides depth perception to better visualize the 3D voxel edits.
-      </p>
-      <div style="margin-top: 32px; text-align: center;">
-        <img src="/images/grooved_pulley.png" alt="Grooved pulley wheel" style="max-width: 400px; width: 100%; border-radius: 12px; box-shadow: var(--shadow);">
-        <p style="margin-top: 12px; font-size: 14px; color: var(--muted);">Grooved pulley wheel used as toy problem for side machining</p>
-      </div>
     </section>
 
     <section class="section">
