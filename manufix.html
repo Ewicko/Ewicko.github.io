@@ -151,7 +151,6 @@
         <span class="tech-item">PPO</span>
         <span class="tech-item">3D-CNN</span>
         <span class="tech-item">CUDA</span>
-        <span class="tech-item">Grad-CAM</span>
       </div>
 
       <h3 style="margin:32px 0 16px;color:var(--accent)">Formulation</h3>
@@ -182,12 +181,6 @@
       <p>
         POC uses a single-channel occupancy tensor (ready to extend to multi-channel features like masks/EDT);
         automatic CUDA usage when available; model checkpointing included.
-      </p>
-
-      <h3 style="margin:32px 0 16px;color:var(--accent)">Diagnostics & Interpretability</h3>
-      <p>
-        Integrated Grad-CAM for 3D to visualize policy saliency inside the voxel volume (helps explain edits
-        around undercuts/thin-wall regions).
       </p>
 
       <h3 style="margin:32px 0 16px;color:var(--accent)">Outcome</h3>
