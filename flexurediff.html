@@ -122,14 +122,12 @@
         <div>
           <p style="margin-top: 0;">
             FlexureDiff is a specialized diffusion model for generating compliant mechanism designs, inspired by MIT DeCoDe Lab's
-            groundbreaking TopoDiff architecture. This model learns the distribution of successful flexure designs and can generate
+            groundbreaking TopoDiff architecture. This model learns the distribution of performant flexure designs and can generate
             novel, manufacturable flexures from high-level specifications.
           </p>
           <p>
-            The model is trained on a curated dataset of over 10,000 topology-optimized flexure designs validated through finite
-            element analysis, spanning various loading conditions and mechanical objectives. Training leverages the DDPM framework
-            with custom architectural modifications to handle the unique characteristics of topology optimization outputs, enabling
-            rapid exploration of the design space without traditional iterative optimization.
+            The model is trained on a dataset of topology-optimized flexure designs designed with my solver spanning various loading conditions and mechanical objectives.
+            Training shows promise and I am making more diffusion models to train diffusion based surrogates to use in my early assembly level generative test formulations.
           </p>
         </div>
         <div class="hero-image">
@@ -184,7 +182,7 @@
             applied at the same location for every flexure and only varying in magnitude and basis directions.
           </p>
           <p>
-            This presented a unique challenge: when using the same location for all prescribed displacement values and simply
+            When using the same location for all prescribed displacement values and simply
             indicating the direction, the data efficiency was poor. To solve this, I developed a spatial encoding approach using
             arbitrary patterns to encode the load direction. Each direction receives its own distinct arbitrary pattern, which is
             then multiplied by the load magnitude. Interestingly, the specific patterns chosen wasn't important as long as
