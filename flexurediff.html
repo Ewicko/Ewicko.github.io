@@ -189,18 +189,28 @@
 
     <section class="section">
       <h2>Spatial Encoding Innovation</h2>
-      <p>
-        A critical innovation in FlexureDiff compared to TopoDiff is the use of spatial encoding to vastly improve data efficiency.
-        Unlike TopoDiff where loads and boundary conditions are applied at different locations, in FlexureDiff the loads are
-        applied at the same location for every flexure—only varying in magnitude and basis directions.
-      </p>
-      <p>
-        This presented a unique challenge: when using the same location for all prescribed displacement values and simply
-        indicating the direction, the data efficiency was poor. To solve this, I developed a spatial encoding approach using
-        arbitrary patterns to encode the load direction. Each direction receives its own distinct arbitrary pattern, which is
-        then multiplied by the load magnitude. Interestingly, the specific patterns chosen don't matter—what matters is that
-        they provide unique spatial signatures for each loading direction.
-      </p>
+      <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: start;">
+        <div>
+          <p style="margin-top: 0;">
+            A critical innovation in FlexureDiff compared to TopoDiff is the use of spatial encoding to vastly improve data efficiency.
+            Unlike TopoDiff where loads and boundary conditions are applied at different locations, in FlexureDiff the loads are
+            applied at the same location for every flexure—only varying in magnitude and basis directions.
+          </p>
+          <p>
+            This presented a unique challenge: when using the same location for all prescribed displacement values and simply
+            indicating the direction, the data efficiency was poor. To solve this, I developed a spatial encoding approach using
+            arbitrary patterns to encode the load direction. Each direction receives its own distinct arbitrary pattern, which is
+            then multiplied by the load magnitude. Interestingly, the specific patterns chosen don't matter—what matters is that
+            they provide unique spatial signatures for each loading direction.
+          </p>
+        </div>
+        <div class="hero-image" style="margin: 0;">
+          <img src="/images/FlexureDiff/spatial_encoding.png" alt="Spatial encoding patterns visualization showing original vs encoded channels" />
+          <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">
+            Comparison of original uniform DOF vs spatially encoded patterns with arbitrary designs
+          </p>
+        </div>
+      </div>
 
       <div style="margin: 32px 0;">
         <h3 style="font-size: 20px; margin-bottom: 20px; color: var(--accent);">Without Spatial Encoding</h3>
