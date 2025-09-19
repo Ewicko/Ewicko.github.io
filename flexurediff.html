@@ -142,26 +142,36 @@
 
       <div class="tech-stack">
         <span class="tech-item">PyTorch</span>
-        <span class="tech-item">Diffusion Models</span>
+        <span class="tech-item">UNet</span>
         <span class="tech-item">TopoDiff</span>
-        <span class="tech-item">Topology Optimization</span>
-        <span class="tech-item">3D CNNs</span>
+        <span class="tech-item">Diffusion Models</span>
+        <span class="tech-item">Spatial Encoding</span>
       </div>
 
-      <div class="feature-grid">
-        <div class="feature">
-          <h3>Conditional Generation</h3>
-          <p>Generate flexures based on specific boundary conditions, load cases, and performance requirements through conditional diffusion.</p>
-        </div>
-        <div class="feature">
-          <h3>Voxel Representation</h3>
-          <p>Leverages 3D voxel grids to represent material distribution, enabling direct generation of manufacturable geometries.</p>
-        </div>
-        <div class="feature">
-          <h3>Physics-Informed</h3>
-          <p>Incorporates mechanical constraints and physics principles into the generation process for functional designs.</p>
-        </div>
-      </div>
+      <h3 style="margin: 32px 0 16px; color: var(--accent);">Architecture & Training Details</h3>
+      <ul style="color: var(--muted); max-width: 70ch; line-height: 1.8;">
+        <li><strong>Model Architecture:</strong> Uses TopoDiff UNet architecture for diffusion-based generation</li>
+        <li><strong>Data Efficiency:</strong> Improved with arbitrary pattern spatially encoded input</li>
+        <li><strong>Boundary Conditions:</strong> Fixed left side, right side moves in basis directions (translation x, translation y, or rotation z about centroid)</li>
+        <li><strong>Load Range:</strong> [0.2, 5] mm prescribed displacement</li>
+        <li><strong>Design Constraints:</strong> 1J max strain energy, 64×64mm design domain</li>
+      </ul>
+
+      <h3 style="margin: 32px 0 16px; color: var(--accent);">Input Channels</h3>
+      <p style="margin-bottom: 16px;">The model processes 5 input channels:</p>
+      <ul style="color: var(--muted); max-width: 70ch; line-height: 1.8;">
+        <li>Strain energy array for solid design domain and the load</li>
+        <li>Von Mises stress for solid design domain and the load</li>
+        <li>Basis direction for right surface flexibility</li>
+        <li>Magnitude of prescribed displacement on the surface</li>
+        <li>Normalized ground truth topology array</li>
+      </ul>
+
+      <h3 style="margin: 32px 0 16px; color: var(--accent);">Data Normalization</h3>
+      <p style="color: var(--muted); max-width: 70ch;">
+        Pseudo-normalized to fit within [0,1] range while maintaining magnitude proportionality relative to the rest of the dataset,
+        ensuring consistent training dynamics across different load conditions and stress distributions.
+      </p>
     </section>
 
     <section class="section">
