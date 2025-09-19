@@ -126,9 +126,10 @@
             novel, manufacturable mechanisms from high-level specifications.
           </p>
           <p>
-            By training on thousands of topology-optimized flexure designs, FlexureDiff captures the implicit design rules and
-            patterns that lead to functional compliant mechanisms, enabling rapid exploration of the design space without
-            traditional iterative optimization.
+            The model is trained on a curated dataset of over 10,000 topology-optimized flexure designs validated through finite
+            element analysis, spanning various loading conditions and mechanical objectives. Training leverages the DDPM framework
+            with custom architectural modifications to handle the unique characteristics of topology optimization outputs, enabling
+            rapid exploration of the design space without traditional iterative optimization.
           </p>
         </div>
         <div class="hero-image">
@@ -175,25 +176,12 @@
     </section>
 
     <section class="section">
-      <h2>Dataset & Training</h2>
-      <p>
-        The model is trained on a curated dataset of over 10,000 topology-optimized flexure designs, each validated through
-        finite element analysis. The dataset spans various loading conditions, boundary constraints, and mechanical objectives,
-        providing comprehensive coverage of the flexure design space.
-      </p>
-      <p>
-        Training leverages the denoising diffusion probabilistic model (DDPM) framework, adapted for 3D voxel data with
-        custom architectural modifications to handle the unique characteristics of topology optimization outputs.
-      </p>
-    </section>
-
-    <section class="section">
       <h2>Spatial Encoding Innovation</h2>
       <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: start;">
         <div>
           <p style="margin-top: 0;">
             Unlike TopoDiff where loads and boundary conditions are applied at different locations, in FlexureDiff the loads are
-            applied at the same location for every flexure—only varying in magnitude and basis directions.
+            applied at the same location for every flexure and only varying in magnitude and basis directions.
           </p>
           <p>
             This presented a unique challenge: when using the same location for all prescribed displacement values and simply
@@ -206,7 +194,7 @@
         <div class="hero-image" style="margin: 0;">
           <img src="/images/FlexureDiff/comparison.png" alt="Comparison of input channels with and without spatial encoding" />
           <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">
-            Top: Original uniform channels. Bottom: Spatially encoded channels with arbitrary patterns
+            5 inputs for a sample. Top shows normal encoding, bottom shows spatial encoding with arbitrary pattern for translation in the y basis
           </p>
         </div>
       </div>
