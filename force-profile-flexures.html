@@ -149,8 +149,8 @@
       </div>
 
       <ul style="color: var(--muted); max-width: 120ch; line-height: 1.8; margin-top: 24px;">
-        <li><strong>Profile Matching:</strong> Advanced optimization algorithms minimize the difference between target and achieved force-displacement curves across the entire actuation range.</li>
-        <li><strong>Generative Algorithm:</strong> Combines topology optimization with inverse design methods to explore vast design spaces and generate novel flexure geometries automatically.</li>
+        <li><strong>Profile Matching:</strong> I'm developing an advanced optimization formulation to minimize the difference between target and achieved force-displacement curves across the entire actuation range, automatically weighting unstable/imfortant regions of the curve.</li>
+        <li><strong>MMA Sensititvities/Gradients:</strong> Using my custom adjoint calculations to tell optimizer each elements effect on the REST of the curve at later equilibrium points, at EVERY discritized point on the curve.</li>
         <li><strong>Multi-Objective Optimization:</strong> Simultaneously optimizes for profile matching, manufacturability, stress distribution, and material efficiency.</li>
         <li><strong>Nonlinear Analysis:</strong> Custom arc-length solver handles snap-through, snap-back, and negative stiffness behaviors critical for complex force profiles.</li>
         <li><strong>Density-Based TO:</strong> SIMP method with custom sensitivities for gradient-based optimization of the material distribution.</li>
@@ -188,7 +188,7 @@
     </section>
 
     <section class="section">
-      <h2>Example Early Resutls With My Formulation</h2>
+      <h2>Early Resutls With My Formulation</h2>
       <div class="hero-image" style="margin-top: 24px;">
         <img src="/images/force-profile-flexures-generative-design/exponential-force-flexure.png" alt="Exponential stiffening flexure" />
       </div>
