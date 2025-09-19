@@ -204,9 +204,9 @@
           </p>
         </div>
         <div class="hero-image" style="margin: 0;">
-          <img src="/images/FlexureDiff/spatial_encoding.png" alt="Spatial encoding patterns visualization showing original vs encoded channels" />
+          <img src="/images/FlexureDiff/comparison.png" alt="Comparison of input channels with and without spatial encoding" />
           <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">
-            Spatially encoded patterns with arbitrary designs
+            Top: Original uniform channels. Bottom: Spatially encoded channels with arbitrary patterns
           </p>
         </div>
       </div>
@@ -231,12 +231,20 @@
         </div>
       </div>
 
-      <p>
-        The results demonstrate a dramatic improvement: data efficiency increased by more than 3.6× relative to the baseline
-        FlexureDiff model while increasing the feasability of the results by 2.6x. Using the exact same 400-sample dataset and identical hyperparameters on the same model architecture,
-        the spatially-encoded version achieved 100% feasible topology generation (8/8) in just 6,000 training steps, compared
-        to only 37.5% (3/8) feasible topologies after 22,000+ steps without spatial encoding.
-      </p>
+      <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 32px; align-items: start;">
+        <p style="margin: 0;">
+          The results demonstrate a dramatic improvement: data efficiency increased by more than 3.6× relative to the baseline
+          FlexureDiff model while increasing the feasability of the results by 2.6x. Using the exact same 400-sample dataset and identical hyperparameters on the same model architecture,
+          the spatially-encoded version achieved 100% feasible topology generation (8/8) in just 6,000 training steps, compared
+          to only 37.5% (3/8) feasible topologies after 22,000+ steps without spatial encoding.
+        </p>
+        <div class="hero-image" style="margin: 0;">
+          <img src="/images/FlexureDiff/spatial_encoding.png" alt="Spatial encoding patterns visualization" />
+          <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">
+            Spatially encoded patterns with arbitrary designs for each DOF
+          </p>
+        </div>
+      </div>
     </section>
 
     <nav class="project-nav" aria-label="Project navigation">
