@@ -124,12 +124,12 @@
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start;">
         <div>
           <p style="margin-top: 0;">
-            Robust topology optimization frameworks for designing small strain flexures and compliant mechanisms.
-            This tool leverages nonlinear finite element analysis to generate optimal monlithic designs that can achieve complex mechanical behaviors
+            I created custom and robust topology optimizers for designing small strain flexures and compliant mechanisms.
+            This tool leverages linear and nonlinear finite element analysis to generate optimal monlithic designs that can achieve complex mechanical behaviors
             through elastic deformation rather than traditional joints and linkages.
           </p>
           <p>
-            Built with future users and researchers in mind, this project connects to Transcend Mechanics' webapp through an API connection.
+            Built with future users and researchers in mind, this project connects to Transcend Mechanics' webapp through an API connection. Details below.
           </p>
         </div>
         <div class="hero-image" style="margin: 0;">
@@ -150,17 +150,17 @@
           <div style="background: var(--card); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 20px;">
             <h4 style="margin-top: 0; margin-bottom: 12px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted);">Inputs</h4>
             <ul style="color: var(--muted); line-height: 1.8; margin-bottom: 20px;">
-              <li>Target stiffness in free direction(s)</li>
-              <li>Material stress limits</li>
               <li>Design domain dimensions</li>
+              <li>Target stiffness in free direction(s)</li>
               <li>Required displacement range</li>
+              <li>Material selection</li>
+              <li>Material stress limits</li>
               <li>Obstacle locations (optional)</li>
+              <li>Volume/mass limit (optional)</li>
             </ul>
             <h4 style="margin-bottom: 12px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted);">Outputs</h4>
             <ul style="color: var(--muted); line-height: 1.8; margin: 0;">
-              <li>Optimized topology (STL/STEP)</li>
-              <li>Force-displacement curves</li>
-              <li>Stress distribution maps</li>
+              <li>Optimized flexure topology (STL)</li>
               <li>Performance metrics</li>
             </ul>
           </div>
@@ -171,18 +171,20 @@
             <h4 style="margin-top: 0; margin-bottom: 12px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted);">Inputs</h4>
             <ul style="color: var(--muted); line-height: 1.8; margin-bottom: 20px;">
               <li>Design domain dimensions</li>
+              <li>Target mechanical or geometric advantage</li>
               <li>Input port location</li>
               <li>Output port location</li>
-              <li>Obstacle locations (optional)</li>
               <li>Fixed/preserved regions</li>
-              <li>Target mechanical advantage</li>
+              <li>Material selection</li>
+              <li>Material stress limits</li>
+              <li>Obstacle locations (optional)</li>
+              <li>Volume/mass limit (optional)</li>
             </ul>
             <h4 style="margin-bottom: 12px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted);">Outputs</h4>
             <ul style="color: var(--muted); line-height: 1.8; margin: 0;">
-              <li>Optimized mechanism topology</li>
+              <li>Optimized mechanism topology (STL)</li>
               <li>Actual mechanical advantage</li>
               <li>Input/output relationships</li>
-              <li>Manufacturing-ready geometry</li>
             </ul>
           </div>
         </div>
@@ -195,7 +197,7 @@
       <div class="tech-stack">
         <span class="tech-item">Python</span>
         <span class="tech-item">FEniCSx</span>
-        <span class="tech-item">MMA Algorithm</span>
+        <span class="tech-item">MMA</span>
         <span class="tech-item">NumPy</span>
         <span class="tech-item">Matplotlib</span>
         <span class="tech-item">Paraview</span>
@@ -206,9 +208,10 @@
       </p>
 
       <ul style="color: var(--muted); max-width: 70ch; line-height: 1.8;">
-        <li><strong>Nonlinear FEA:</strong> Handles large deformations and material nonlinearities for accurate simulation of compliant mechanism behavior under various loading conditions.</li>
-        <li><strong>Density-Based TO:</strong> Implements SIMP (Solid Isotropic Material with Penalization) method for smooth convergence to manufacturable black-and-white designs.</li>
-        <li><strong>Multi-Objective:</strong> Optimizes for multiple criteria including stiffness, stress distribution, and specific force-displacement characteristics.</li>
+        <li><strong>FEA:</strong> Modified FEniCSx based FEA solvers made to work with MMA sensitivites/gradients.</li>
+        <li><strong>Optimizer:</strong> Custom implementation of the Method of Moving Asymptotes (MMA), adapted from Svanberg (1987).</li>
+        <li><strong>Formulations:</strong>  Custom strain energy and virtual work formulations inspired by Koppen (2022).</li>
+        <li><strong>Density-Based TO:</strong> SIMP (Solid Isotropic Material with Penalization) method.</li>
       </ul>
     </section>
 
