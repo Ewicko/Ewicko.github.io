@@ -190,7 +190,7 @@
             and integrates with MMA optimization through custom adjoint-derived sensitivities that I developed.
           </p>
           <p style="color:var(--muted);margin-top:16px;">
-            To accurately design these force profiles, I need to model the most nonlinear behaviors including elemental negative stiffness,
+            Before designing these force profile flexures, I need to model the most nonlinear behaviors including elemental negative stiffness,
             near-singular stiffness matrices, and buckling phenomena. This requires a highly specialized Arc-length solver capable of handling
             extreme geometric nonlinearity and material instabilities that occur in compliant mechanisms by dynamically tracing the equalibrium path of the actuated object.
           </p>
@@ -198,7 +198,7 @@
             While open-source nonlinear FEA solvers exist, they cannot be used for this application as I need direct control of the
             elemental values for SIMP (Solid Isotropic Material with Penalization) density-based topology optimization, as well as
             the ability to create custom adjoint sensitivities and gradients required by the MMA optimizer. This necessitated developing
-            a fully custom arc-length solver from scratch.
+            a fully custom arc-length solver based on PETSc and UFL (to expose and create custom FEniCS forms/expressions for discritization).
           </p>
         </div>
         <div class="hero-image" style="margin: 0;">
