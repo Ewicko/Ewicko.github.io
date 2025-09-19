@@ -165,20 +165,6 @@
     </section>
 
     <section class="section">
-      <h2>Example Applications</h2>
-      <div class="hero-image" style="margin-top: 24px;">
-        <img src="/images/force-profile-flexures-generative-design/exponential-force-flexure.png" alt="Exponential stiffening flexure" />
-      </div>
-      <p style="color:var(--muted);margin-top:12px;margin-bottom:32px;">
-        <strong>Exponential stiffening flexure:</strong> Force increases exponentially with displacement, ideal for impact protection systems and progressive-rate suspensions.
-      </p>
-      <div class="hero-image" style="margin-top: 24px;">
-        <img src="/images/force-profile-flexures-generative-design/softening-flexure.png" alt="Softening response flexure" />
-      </div>
-      <p style="color:var(--muted);margin-top:12px;margin-bottom:32px;">
-        <strong>Softening response flexure:</strong> Force plateaus with increasing displacement, perfect for constant-force mechanisms and precision assembly tools.
-      </p>
-
       <h2>Custom Arc-Length Nonlinear FEA</h2>
       <div class="hero-image" style="margin: 24px 0;">
         <img src="/images/compliant-mechanism-topop/deformation_animation.gif" alt="Deformation animation showing mechanism behavior" />
@@ -196,8 +182,8 @@
           </p>
           <p style="color:var(--muted);margin-top:16px;">
             While open-source nonlinear FEA solvers exist, they cannot be used for this application as I need direct control of the
-            elemental values for SIMP (Solid Isotropic Material with Penalization) density-based topology optimization, as well as
-            the ability to create custom adjoint sensitivities and gradients required by the MMA optimizer. This necessitated developing
+            elemental values for SIMP density-based topology optimization, as well as
+            the ability to create custom adjoint sensitivities and gradients required by my MMA optimizer. This necessitated developing
             a fully custom arc-length solver based on PETSc and UFL (to expose and create custom FEniCS forms/expressions for discritization).
           </p>
         </div>
@@ -206,6 +192,22 @@
           <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">Force-displacement curve demonstrating negative stiffness behavior</p>
         </div>
       </div>
+    </section>
+
+    <section class="section">
+      <h2>Example Applications</h2>
+      <div class="hero-image" style="margin-top: 24px;">
+        <img src="/images/force-profile-flexures-generative-design/exponential-force-flexure.png" alt="Exponential stiffening flexure" />
+      </div>
+      <p style="color:var(--muted);margin-top:12px;margin-bottom:32px;">
+        <strong>Exponential stiffening flexure:</strong> Force increases exponentially with displacement, ideal for impact protection systems and progressive-rate suspensions.
+      </p>
+      <div class="hero-image" style="margin-top: 24px;">
+        <img src="/images/force-profile-flexures-generative-design/softening-flexure.png" alt="Softening response flexure" />
+      </div>
+      <p style="color:var(--muted);margin-top:12px;margin-bottom:32px;">
+        <strong>Softening response flexure:</strong> Force plateaus with increasing displacement, perfect for constant-force mechanisms and precision assembly tools.
+      </p>
     </section>
 
     <nav class="project-nav" aria-label="Project navigation">
