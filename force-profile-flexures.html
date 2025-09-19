@@ -144,7 +144,7 @@
         <span class="tech-item">Python</span>
         <span class="tech-item">FEniCSx</span>
         <span class="tech-item">Topology Optimization</span>
-        <span class="tech-item">Inverse Design</span>
+        <span class="tech-item">Arc-Length FEA</span>
         <span class="tech-item">Nonlinear FEA</span>
       </div>
 
@@ -183,21 +183,29 @@
       <div class="hero-image" style="margin: 24px 0;">
         <img src="/images/compliant-mechanism-topop/deformation_animation.gif" alt="Deformation animation showing mechanism behavior" />
       </div>
-      <p style="color:var(--muted);margin-top:12px;">
-        This animation was created with my custom arc-length solver that is able to simulate snap-through/snap-back behavior
-        and integrates with MMA optimization through custom adjoint-derived sensitivities that I developed.
-      </p>
-      <p style="color:var(--muted);margin-top:16px;">
-        To accurately design these force profiles, I need to model the most nonlinear behaviors including elemental negative stiffness,
-        near-singular stiffness matrices, and buckling phenomena. This requires a highly specialized solver capable of handling
-        extreme geometric nonlinearity and material instabilities that occur in compliant mechanisms.
-      </p>
-      <p style="color:var(--muted);margin-top:16px;">
-        While open-source nonlinear FEA solvers exist, they cannot be used for this application as I need direct control of the
-        elemental values for SIMP (Solid Isotropic Material with Penalization) density-based topology optimization, as well as
-        the ability to create custom adjoint sensitivities and gradients required by the MMA optimizer. This necessitated developing
-        a fully custom arc-length solver from scratch.
-      </p>
+      <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 32px; align-items: start; margin-top: 24px;">
+        <div>
+          <p style="color:var(--muted);margin-top: 0;">
+            This animation was created with my custom arc-length solver that is able to simulate snap-through/snap-back behavior
+            and integrates with MMA optimization through custom adjoint-derived sensitivities that I developed.
+          </p>
+          <p style="color:var(--muted);margin-top:16px;">
+            To accurately design these force profiles, I need to model the most nonlinear behaviors including elemental negative stiffness,
+            near-singular stiffness matrices, and buckling phenomena. This requires a highly specialized Arc-length solver capable of handling
+            extreme geometric nonlinearity and material instabilities that occur in compliant mechanisms by dynamically tracing the equalibrium path of the actuated object.
+          </p>
+          <p style="color:var(--muted);margin-top:16px;">
+            While open-source nonlinear FEA solvers exist, they cannot be used for this application as I need direct control of the
+            elemental values for SIMP (Solid Isotropic Material with Penalization) density-based topology optimization, as well as
+            the ability to create custom adjoint sensitivities and gradients required by the MMA optimizer. This necessitated developing
+            a fully custom arc-length solver from scratch.
+          </p>
+        </div>
+        <div class="hero-image" style="margin: 0;">
+          <img src="/images/force-profile-flexures-generative-design/FD_curve.png" alt="Force-displacement curve showing negative stiffness region" />
+          <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">Force-displacement curve demonstrating negative stiffness behavior</p>
+        </div>
+      </div>
     </section>
 
     <nav class="project-nav" aria-label="Project navigation">
