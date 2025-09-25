@@ -241,35 +241,69 @@
 
     <section class="section">
       <h2>Mathematical Formulation</h2>
-      <p>The spatial encoding approach uses two key functions to encode DOF constraints and displacement patterns:</p>
+      <p style="color: var(--muted); margin-bottom: 32px;">The spatial encoding approach uses two key functions to encode DOF constraints and displacement patterns:</p>
 
-      <h3 style="color: var(--accent); margin-top: 24px;">1. DOF Gradient Encoding Function</h3>
-      <p><code>get_dof_gradient(dof_value, size=64)</code></p>
-      <p>Purpose: Generates spatial gradients based on DOF (Degrees of Freedom) condition type</p>
+      <div style="background: var(--card); border: 1px solid rgba(255,255,255,.08); border-radius: 14px; padding: 24px; margin-bottom: 24px;">
+        <h3 style="color: var(--accent); margin-top: 0; margin-bottom: 16px; font-size: 20px;">1. DOF Gradient Encoding Function</h3>
 
-      <p><strong>Horizontal (tx, dof_value=0):</strong></p>
-      <p style="margin-left: 20px;"><code>gradient(i,j) = 2j/size - 1</code> (linear gradient from -1 to 1)</p>
+        <p style="font-family: 'SF Mono', Monaco, 'Courier New', monospace; font-size: 14px; background: var(--surface); padding: 8px 12px; border-radius: 6px; display: inline-block; margin-bottom: 12px;">
+          <strong>get_dof_gradient(dof_value, size=64)</strong>
+        </p>
 
-      <p><strong>Vertical (ty, dof_value=1):</strong></p>
-      <p style="margin-left: 20px;"><code>gradient(i,j) = 2i/size - 1</code> (linear gradient from -1 to 1)</p>
+        <p style="color: var(--muted); margin-bottom: 20px;">
+          <em>Purpose:</em> Generates spatial gradients based on DOF (Degrees of Freedom) condition type
+        </p>
 
-      <p><strong>Corner constraints (dof_value=2,3,4):</strong></p>
-      <p style="margin-left: 20px;"><code>gradient(i,j) = 2 * sqrt((xi - cx)^2 + (yj - cy)^2) / sqrt(2) - 1</code></p>
-      <p style="margin-left: 20px;">Where (cx, cy) are corner coordinates</p>
+        <div style="margin-left: 20px;">
+          <p style="margin-bottom: 16px;">
+            <strong>Horizontal (t<sub>x</sub>, dof_value=0):</strong><br>
+            <code style="display: inline-block; margin-top: 8px; background: var(--surface); padding: 6px 10px; border-radius: 4px;">gradient(i,j) = 2j/size - 1</code>
+            <span style="color: var(--muted); font-size: 14px; margin-left: 8px;">(linear gradient from -1 to 1)</span>
+          </p>
 
-      <h3 style="color: var(--accent); margin-top: 32px;">2. Displacement Pattern Encoding Function</h3>
-      <p><code>get_displacement_pattern(dof_value, base_value, size=64)</code></p>
-      <p>Purpose: Generates spatial patterns for prescribed displacement fields</p>
+          <p style="margin-bottom: 16px;">
+            <strong>Vertical (t<sub>y</sub>, dof_value=1):</strong><br>
+            <code style="display: inline-block; margin-top: 8px; background: var(--surface); padding: 6px 10px; border-radius: 4px;">gradient(i,j) = 2i/size - 1</code>
+            <span style="color: var(--muted); font-size: 14px; margin-left: 8px;">(linear gradient from -1 to 1)</span>
+          </p>
 
-      <p><strong>Horizontal (tx, dof_value=0):</strong></p>
-      <p style="margin-left: 20px;"><code>pattern(i,j) = base_value + 0.3 * sin(2*pi*j/size)</code></p>
+          <p style="margin-bottom: 0;">
+            <strong>Corner constraints (dof_value=2,3,4):</strong><br>
+            <code style="display: inline-block; margin-top: 8px; background: var(--surface); padding: 6px 10px; border-radius: 4px;">gradient(i,j) = 2 × √((x<sub>i</sub> - c<sub>x</sub>)<sup>2</sup> + (y<sub>j</sub> - c<sub>y</sub>)<sup>2</sup>) / √2 - 1</code><br>
+            <span style="color: var(--muted); font-size: 14px;">Where (c<sub>x</sub>, c<sub>y</sub>) are corner coordinates</span>
+          </p>
+        </div>
+      </div>
 
-      <p><strong>Vertical (ty, dof_value=1):</strong></p>
-      <p style="margin-left: 20px;"><code>pattern(i,j) = base_value + 0.3 * sin(2*pi*i/size)</code></p>
+      <div style="background: var(--card); border: 1px solid rgba(255,255,255,.08); border-radius: 14px; padding: 24px;">
+        <h3 style="color: var(--accent); margin-top: 0; margin-bottom: 16px; font-size: 20px;">2. Displacement Pattern Encoding Function</h3>
 
-      <p><strong>Corner constraints (dof_value=2,3,4):</strong></p>
-      <p style="margin-left: 20px;"><code>distance = sqrt((xi - cx)^2 + (yj - cy)^2)</code></p>
-      <p style="margin-left: 20px;"><code>pattern(i,j) = base_value + 0.2 * cos(3*pi * distance)</code></p>
+        <p style="font-family: 'SF Mono', Monaco, 'Courier New', monospace; font-size: 14px; background: var(--surface); padding: 8px 12px; border-radius: 6px; display: inline-block; margin-bottom: 12px;">
+          <strong>get_displacement_pattern(dof_value, base_value, size=64)</strong>
+        </p>
+
+        <p style="color: var(--muted); margin-bottom: 20px;">
+          <em>Purpose:</em> Generates spatial patterns for prescribed displacement fields
+        </p>
+
+        <div style="margin-left: 20px;">
+          <p style="margin-bottom: 16px;">
+            <strong>Horizontal (t<sub>x</sub>, dof_value=0):</strong><br>
+            <code style="display: inline-block; margin-top: 8px; background: var(--surface); padding: 6px 10px; border-radius: 4px;">pattern(i,j) = base_value + 0.3 × sin(2πj/size)</code>
+          </p>
+
+          <p style="margin-bottom: 16px;">
+            <strong>Vertical (t<sub>y</sub>, dof_value=1):</strong><br>
+            <code style="display: inline-block; margin-top: 8px; background: var(--surface); padding: 6px 10px; border-radius: 4px;">pattern(i,j) = base_value + 0.3 × sin(2πi/size)</code>
+          </p>
+
+          <p style="margin-bottom: 0;">
+            <strong>Corner constraints (dof_value=2,3,4):</strong><br>
+            <code style="display: inline-block; margin-top: 8px; margin-bottom: 4px; background: var(--surface); padding: 6px 10px; border-radius: 4px;">distance = √((x<sub>i</sub> - c<sub>x</sub>)<sup>2</sup> + (y<sub>j</sub> - c<sub>y</sub>)<sup>2</sup>)</code><br>
+            <code style="display: inline-block; margin-top: 4px; background: var(--surface); padding: 6px 10px; border-radius: 4px;">pattern(i,j) = base_value + 0.2 × cos(3π × distance)</code>
+          </p>
+        </div>
+      </div>
     </section>
 
     <nav class="project-nav" aria-label="Project navigation">
