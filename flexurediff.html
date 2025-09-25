@@ -244,6 +244,53 @@
     </section>
 
     <section class="section">
+      <h2>Ablation Study</h2>
+      <p style="color: var(--muted); margin-bottom: 32px;">
+        A larger dataset was used for an ablation study, work in progress.
+      </p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 32px;">
+        <div>
+          <h3 style="font-size: 18px; margin-bottom: 16px; color: var(--accent);">With Spatial Encoding</h3>
+          <div class="hero-image">
+            <img src="/images/FlexureDiff/1100_encoding.png" alt="Results with spatial encoding at 1100 steps" />
+            <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">
+              1100_encoding
+            </p>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-size: 18px; margin-bottom: 16px; color: var(--accent);">Without Spatial Encoding</h3>
+          <div class="hero-image">
+            <img src="/images/FlexureDiff/1100_no_encoding.png" alt="Results without spatial encoding at 1100 steps" />
+            <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">
+              1100_no_encoding
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+        <div>
+          <div class="hero-image">
+            <img src="/images/FlexureDiff/step_10000_encoding.png" alt="Training progress with spatial encoding at step 10000" />
+            <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">
+              step_10000_encoding
+            </p>
+          </div>
+        </div>
+        <div>
+          <div class="hero-image">
+            <img src="/images/FlexureDiff/step_10000_no_encoding.png" alt="Training progress without spatial encoding at step 10000" />
+            <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted);">
+              step_10000_no_encoding
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
       <h2>Mathematical Formulation</h2>
       <p style="color: var(--muted); margin-bottom: 32px;">The spatial encoding approach uses two key functions to encode DOF constraints and displacement patterns:</p>
 
