@@ -132,6 +132,9 @@
             The model is trained on a dataset I made of topology-optimized flexure designs designed with my solver spanning various loading conditions and mechanical objectives.
             Training shows promise and I am making more diffusion models to train diffusion based surrogates to use in my early assembly level generative test formulations.
           </p>
+          <p style="margin-top: 20px; padding: 12px 16px; background: rgba(113,229,255,.08); border-left: 3px solid var(--accent); border-radius: 4px;">
+            <strong>Note:</strong> This research is currently in development and ongoing. Results and methodologies are subject to refinement as the work progresses.
+          </p>
         </div>
         <div class="hero-image">
           <img src="/images/FlexureDiff/diffusion_animation_000.gif" alt="FlexureDiff diffusion process animation" loading="eager" />
@@ -228,7 +231,8 @@
           The results demonstrate a dramatic improvement: data efficiency increased by more than 3.6× relative to the baseline
           FlexureDiff model while increasing the feasability of the results by 2.6x. Using the exact same 400-sample dataset and identical hyperparameters on the same model architecture,
           the spatially-encoded version achieved 100% feasible topology generation (8/8) in just 6,000 training steps, compared
-          to only 37.5% (3/8) feasible topologies after 22,000+ steps without spatial encoding.
+          to only 37.5% (3/8) feasible topologies after 22,000+ steps without spatial encoding. Note that the evaluation set includes
+          duplicates to verify reproducibility of the generation process.
         </p>
         <div class="hero-image" style="margin: 0;">
           <img src="/images/FlexureDiff/spatial_encoding.png" alt="Spatial encoding patterns visualization" />
