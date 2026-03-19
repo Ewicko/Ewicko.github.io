@@ -1,0 +1,38 @@
+baseURL = "https://ethanwicko.com/"
+languageCode = "en-us"
+title = "Ethan Wicko"
+enableRobotsTXT = false
+
+[params]
+  description = "Projects, research, and experiments by Ethan Wicko."
+  author = "Ethan Wicko"
+  mainSections = ["blog"]
+
+[params.giscus]
+  repo = "Ewicko/Ewicko.github.io"
+  repoID = ""
+  category = "Blog Comments"
+  categoryID = ""
+  mapping = "pathname"
+  theme = "light"
+
+[permalinks]
+  blog = "/blog/:slug/"
+  projects = "/projects/:slug/"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML"]
+
+[outputFormats.RSS]
+  mediatype = "application/rss+xml"
+  baseName = "index"
+
+[markup]
+  [markup.highlight]
+    style = "monokailight"
+    noClasses = true
+    lineNos = false
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
