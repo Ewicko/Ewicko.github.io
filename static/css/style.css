@@ -1,0 +1,310 @@
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; }
+
+/* Typography */
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #333;
+  background: #fafafa;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+  color: #1a1a1a;
+  line-height: 1.3;
+}
+
+h1 { font-size: 32px; font-weight: normal; margin: 0 0 8px; }
+h2 { font-size: 24px; margin: 40px 0 16px; }
+h3 { font-size: 20px; margin: 32px 0 12px; }
+
+a { color: #0066cc; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Layout */
+.container { width: 100%; max-width: 640px; margin: 0 auto; padding: 0 20px; }
+.container-wide { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* Navigation */
+.site-nav {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 40px;
+}
+
+.site-nav .nav-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-nav.nav-wide .nav-inner {
+  max-width: 1100px;
+}
+
+.site-name { color: #1a1a1a; font-weight: normal; }
+.site-name:hover { text-decoration: none; color: #0066cc; }
+
+.nav-links { display: flex; gap: 20px; }
+.nav-links a { color: #666; }
+.nav-links a:hover { color: #0066cc; }
+.nav-links a.active { color: #1a1a1a; font-weight: 700; }
+
+/* Blog index */
+.post-list { list-style: none; padding: 0; margin: 0; }
+
+.post-item {
+  padding: 20px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.post-item:last-child { border-bottom: none; }
+
+.post-date {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  color: #999;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.post-title {
+  font-size: 18px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.post-title a { color: #0066cc; }
+.post-title a:hover { text-decoration: underline; }
+
+.post-summary {
+  font-size: 15px;
+  color: #555;
+  margin: 6px 0 0;
+}
+
+/* Blog post */
+.post-header { margin-bottom: 32px; }
+.post-header h1 { font-size: 32px; margin-bottom: 8px; }
+.post-header .post-date { margin-bottom: 0; }
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 24px 0;
+}
+
+.post-content blockquote {
+  border-left: 3px solid #e0e0e0;
+  margin: 24px 0;
+  padding: 0 0 0 20px;
+  color: #555;
+}
+
+/* Code blocks */
+.post-content code {
+  font-family: Menlo, Monaco, 'Courier New', monospace;
+  font-size: 14px;
+  background: #f5f5f5;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+.post-content pre {
+  background: #f5f5f5;
+  padding: 16px;
+  border-radius: 4px;
+  overflow-x: auto;
+  line-height: 1.5;
+}
+
+.post-content pre code {
+  background: none;
+  padding: 0;
+  font-size: 14px;
+}
+
+/* Projects grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  padding: 24px 0 60px;
+}
+
+.project-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 200ms ease, border-color 200ms ease;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.project-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-color: #ccc;
+  text-decoration: none;
+}
+
+.project-card .thumb {
+  aspect-ratio: 16/9;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.project-card .card-body { padding: 16px; }
+
+.project-card .card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 6px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.project-card .card-desc {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 10px;
+  line-height: 1.5;
+}
+
+.project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.project-tag {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #f0f0f0;
+  color: #555;
+  border: 1px solid #e0e0e0;
+}
+
+/* Individual project page */
+.project-content { max-width: 1100px; }
+
+.breadcrumb {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 24px;
+}
+
+.breadcrumb a { color: #0066cc; }
+
+.project-meta {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  color: #999;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin: 12px 0 32px;
+}
+
+.project-meta span { display: inline; }
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+  margin: 24px 0;
+}
+
+.tech-stack { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+
+.tech-badge {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #f0f0f0;
+  color: #555;
+  border: 1px solid #e0e0e0;
+}
+
+.project-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 32px 0;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 48px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px;
+}
+
+/* Share links */
+.share-links {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  padding: 32px 0;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 48px;
+  color: #999;
+}
+
+.share-links a { margin-right: 16px; }
+
+/* Comments */
+.comments-section {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Footer */
+.site-footer {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  color: #999;
+  border-top: 1px solid #e0e0e0;
+  padding: 28px 0 40px;
+  margin-top: 60px;
+}
+
+.site-footer a { color: #0066cc; }
+
+/* Video */
+.video-embed {
+  max-width: 100%;
+  margin: 24px 0;
+}
+
+.video-embed video {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* 404 */
+.not-found {
+  text-align: center;
+  padding: 80px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .two-col { grid-template-columns: 1fr; }
+  .project-meta { flex-direction: column; gap: 8px; }
+  .site-nav .nav-inner { flex-direction: column; gap: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card { transition: none; }
+}
