@@ -3,10 +3,11 @@
   <h1>{{ .Title }}</h1>
   <div class="projects-grid">
     {{ range .Pages.ByWeight }}
+    {{ $pageTitle := .Title }}
     <a class="project-card" href="{{ if .Params.external_url }}{{ .Params.external_url }}{{ else }}{{ .RelPermalink }}{{ end }}"
        {{ if .Params.external_url }}target="_blank" rel="noopener"{{ end }}>
       {{ with .Params.thumbnail }}
-      <img class="thumb" src="{{ . }}" alt="{{ .Title }}" loading="lazy" decoding="async">
+      <img class="thumb" src="{{ . }}" alt="{{ $pageTitle }}" loading="lazy" decoding="async">
       {{ end }}
       <div class="card-body">
         <div class="card-title">{{ .Title }}</div>
