@@ -1,0 +1,10 @@
+<nav class="site-nav{{ if eq .Section "projects" }} nav-wide{{ end }}">
+  <div class="nav-inner">
+    <a href="/" class="site-name">ethanwicko.com</a>
+    <div class="nav-links">
+      <a href="/" {{ if .IsHome }}class="active"{{ end }}>Blog</a>
+      <a href="/projects/" {{ if eq .Section "projects" }}class="active"{{ end }}>Projects</a>
+      <a href="/about/" {{ if eq .Title "About" }}class="active"{{ end }}>About</a>
+    </div>
+  </div>
+</nav>
