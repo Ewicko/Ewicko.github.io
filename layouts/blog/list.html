@@ -1,0 +1,18 @@
+{{ define "main" }}
+<div class="container">
+  {{ $posts := .Pages }}
+  {{ if $posts }}
+  <ul class="post-list">
+    {{ range $posts }}
+    <li class="post-item">
+      <span class="post-date">{{ .Date.Format "January 2006" }}</span>
+      <h2 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      {{ with .Description }}<p class="post-summary">{{ . }}</p>{{ end }}
+    </li>
+    {{ end }}
+  </ul>
+  {{ else }}
+  <p>No posts yet.</p>
+  {{ end }}
+</div>
+{{ end }}

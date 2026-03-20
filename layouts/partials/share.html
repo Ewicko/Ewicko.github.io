@@ -1,0 +1,6 @@
+<div class="share-links">
+  Share:
+  <a href="https://twitter.com/intent/tweet?text={{ .Title | urlquery }}&url={{ .Permalink | urlquery }}" target="_blank" rel="noopener">X</a>
+  <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | urlquery }}" target="_blank" rel="noopener">LinkedIn</a>
+  <a href="#" onclick="navigator.clipboard.writeText('{{ .Permalink }}');this.textContent='Copied!';return false;">Copy link</a>
+</div>

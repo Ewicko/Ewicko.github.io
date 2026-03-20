@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="container">
+  <article>
+    <header class="post-header">
+      <h1>{{ .Title }}</h1>
+      <span class="post-date">{{ .Date.Format "January 2, 2006" }}</span>
+    </header>
+    <div class="post-content">
+      {{ .Content }}
+    </div>
+    {{ partial "share.html" . }}
+    {{ partial "comments.html" . }}
+  </article>
+</div>
+{{ end }}
