@@ -1,0 +1,30 @@
+{{ define "main" }}
+<div class="container-wide">
+  <nav class="breadcrumb">
+    <a href="/">Home</a> → <a href="/projects/">Projects</a> → {{ .Title }}
+  </nav>
+
+  <h1>{{ .Title }}</h1>
+
+  <div class="project-meta">
+    {{ with .Params.project_type }}<span>Type: {{ . }}</span>{{ end }}
+    {{ with .Params.duration }}<span>Duration: {{ . }}</span>{{ end }}
+    {{ with .Params.status }}<span>Status: {{ . }}</span>{{ end }}
+  </div>
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  {{ with .Params.tags }}
+  <div class="tech-stack">
+    {{ range . }}<span class="tech-badge">{{ . }}</span>{{ end }}
+  </div>
+  {{ end }}
+
+  <nav class="project-nav">
+    {{ with .PrevInSection }}<a href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ else }}<span></span>{{ end }}
+    {{ with .NextInSection }}<a href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ else }}<span></span>{{ end }}
+  </nav>
+</div>
+{{ end }}
