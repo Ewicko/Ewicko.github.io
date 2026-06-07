@@ -1,7 +1,7 @@
 ---
 title: "The Ideal Time for a Solve"
 date: 2026-06-06
-description: "How much compute is enough?"
+description: "How fast should your solver be?"
 draft: false
 math: false
 ---
